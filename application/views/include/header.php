@@ -97,6 +97,7 @@ $(document).ready(function(){
 					   </li>
 					   
 					   <li><a href="javascript:void(0)">Need Help?</a></li>
+					   <li><a href="<?php echo base_url('term-condition');?>">Term Condition</a></li>
 					</ul>
 					<ul class="menu-search-bar">
 					   <li>

@@ -65,5 +65,9 @@ class Pages extends CI_Controller {
 		//print_r($data['planing']); die();
 		$this->load->view('subscription-plan',$data);
 	}
+	public function term()
+	{
+		$this->load->view('term');
+	}
 	
 }

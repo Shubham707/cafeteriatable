@@ -60,6 +60,7 @@ $route['plans/(:any)/(:any)']='plan/plans/$1/$2';
 $route['plan-extra/(:any)']='pages/plan_extra/$1';
 $route['service-request']='pages/service';
 $route['pricing']='pages/pricing';
+$route['term-condition']='pages/term';
 $route['user-login']='login/user_login';
 $route['signup']='login/save';
 $route['ownership-transfer']='pages/ownership';

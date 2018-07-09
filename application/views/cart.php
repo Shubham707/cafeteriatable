@@ -34,7 +34,9 @@ function clear_cart() {
       <div class="page-content page-order">
         <form action="<?php echo base_url().'cart/update_cart/';?>" method="post">
           <?php if ($cart = $this->cart->contents()): ?>
-        <div class="heading-counter warning" style="background:#e63125 !important; padding:10px;margin-bottom:20px;color:#fff">Your  cart contains: <span><?php echo count($this->cart->contents());?> Ground Booking</span> </div>
+        <div class="heading-counter warning" style="background:#e63125 !important; padding:10px;margin-bottom:20px;color:#fff">Your  cart contains: <span>
+          <?php echo count($this->cart->contents());?>
+           Ground Booking</span> </div>
           <div class="order-detail-content">
 
 		<div class="table-responsive">
@@ -43,10 +45,8 @@ function clear_cart() {
               <thead style="background:#fee2d9">
                 <tr>
                   <th class="cart_product">Sr.</th>
-
-                  <th>Ground Type</th>
-                  <th>Schedule Date</th>
-                  <th>TimeSlot</th>
+                  <th>Plan</th>
+                  <th>Bike</th>
                   <th>Amount</th>
                   <th  class="action">Actions</th>
                 </tr>
@@ -73,24 +73,11 @@ function clear_cart() {
 
 
         <td><?php echo $i++; ?></td>
-				<td><?php echo $this->MRcat->getRcat($item['ground_type'])->row()->fld_rcat_name; ?></td>
 				<td><?php echo $item['name']; ?></td>
 				<td>
-					<?php
-						if($item['timeslot']!='undefined')
-						{
-							$ss=explode(',',$item['timeslot']);
-							
-							for($i=0;$i<count($ss);$i++)
-							{
-								echo $this->MBrand->getBrand($ss[$i])->row()->fld_brand_name;
-								echo '<br>';
-							}
-						}
-					?>
 				</td>
 
-				<td><?php echo 'Rs. '.(count($ss) * $item['price']); ?></td>
+				<td><?php echo 'Rs. '.(count($ss) * $item['total']); ?></td>
 
                 <td class="action"><a href="<?php echo base_url().'cart/remove/'.$item['rowid']?>" title="Delete"><i class="fa fa-trash-o"></i></a></td>
 
