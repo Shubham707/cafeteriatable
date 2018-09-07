@@ -31,7 +31,7 @@
                   <?php $i=1; foreach($users as $user){?>
                 <tr>
                   <td><?php echo $i++;?></td>
-                  <td><?php echo $user->name;?></td>
+                  <td><?php echo $user->first_name;?></td>
                   <td><?php echo $user->email;?></td>
                   <td><?php echo $user->mobile;?></td>
                   <td><a class="btn btn-primary" href="<?php echo  base_url('admin/users/view/').$user->id;?>"><i class="fa fa-eye"></i></a>&nbsp;<a class="btn btn-danger" href="<?php echo  base_url('admin/users/delete/').$user->id;?>"><i class="fa fa-trash"></i></a></td>

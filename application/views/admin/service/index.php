@@ -22,8 +22,8 @@
                 <thead>
                 <tr>
                   <th>Sr No.</th>
-                  <th>Service_ID</th>
-                  <th>Service_Name</th>
+                  <th>Table ID</th>
+                  <th>Table Name</th>
                   <th>Action</th>
                 </tr>
                 </thead>

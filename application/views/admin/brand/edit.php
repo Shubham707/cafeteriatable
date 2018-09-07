@@ -12,12 +12,12 @@
 
           <div class="box box-danger">
             <div class="box-header">
-              <h3 class="box-title">Brand Update</h3>
+              <h3 class="box-title">Menu Update</h3>
             </div>
             <form name="frm" action="<?php echo base_url('admin/brand/update');?>" method="post">
             <div class="box-body">
               <div class="form-group">
-                <label>Brand Serial No.</label>
+                <label>Menu Serial No.</label>
 
                 <div class="input-group">
                   <div class="input-group-addon">
@@ -28,7 +28,7 @@
               </div>
 
               <div class="form-group">
-                <label>Brand Name.</label>
+                <label>Menu Name.</label>
                 <div class="input-group">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>

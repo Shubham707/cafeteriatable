@@ -18,7 +18,7 @@ class Plan extends CI_Controller
 	}
 	
 	
-	public function plans($value,$plan)
+	public function plans($value,$plan,$service)
 	{
 		$val=str_replace('%20', '_', $value);
 		if($val=='Bikes_Below_150CC'){
@@ -36,6 +36,7 @@ class Plan extends CI_Controller
 		}
 		//print_r($data['bike_details']); die();
 		$data['bike']=$val;
+		$data['service']=$service;
 		 $data['plan_bike']=str_replace('%20', ' ', $plan);
 		$data['plan']=$this->db->get('category_table')->result();
 		$this->load->view('plan-select',$data);

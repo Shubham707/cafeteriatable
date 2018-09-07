@@ -7,28 +7,45 @@
 		<div class="search-result-item-body">
 		   <div class="row">
 			  <div class="col-md-5 col-sm-12 col-xs-12">
-				 <h4 class="search-result-item-heading"><a>Arvind Sharma</a></h4>
-				 <p class="info"><span><a><i class="fa fa-envelope "></i> : example@abc.com </a></span></p>
-				 <p class="info"><span><a><i class="fa fa-mobile "></i> : 9876543210 </a></span></p>
-				 <p class="description">You last logged in at: 29-05-2018 6:40 AM [ USA time (GMT + 6:00hrs)</p>
+				 <h4 class="search-result-item-heading"><a><?php echo $this->session->userdata('name');?></a></h4>
+				 <p class="info"><span><a><i class="fa fa-envelope "></i> : <?php echo $this->session->userdata('email');?> </a></span></p>
+				 <p class="info"><span><a><i class="fa fa-mobile "></i> : <?php echo $this->session->userdata('mobile');?> </a></span></p>
+				 <p class="description">You last logged in at: <?php echo $this->session->userdata('login_time');?></p>
 			  </div>
 			  <div class="col-md-7 col-sm-12 col-xs-12">
 				 <div class="row ad-history">
 					<div class="col-md-4 col-sm-4 col-xs-12">
 					   <div class="user-stats">
-						  <h2>&#x20b9; 0</h2>
+					   	
+							<h2>&#x20b9; <?php //$b= $booking[0]->payment==""  ? '' : $booking[0]->payment ;
+							if(empty($booking[0]->payment))
+							echo "";
+							else
+								echo $booking[0]->payment
+
+						?></h2>
 						  <small>YOUR CREDITS</small>
 					   </div>
 					</div>
 					<div class="col-md-4 col-sm-4 col-xs-12">
 					   <div class="user-stats">
-						  <h2>Below 150CC</h2>
-						  <small>Standard Plan</small>
+					   	<?php if(empty($booking[0]->bike_cc)){ ?>
+					   		<small>Plan</small>
+						<?php } else {?>
+
+						  <h2><?php echo $booking[0]->bike_cc;?></h2>
+						  <small><?php echo $booking[0]->bike_plan;?></small>
+						<?php }?>
+
 					   </div>
 					</div>
 					<div class="col-md-4 col-sm-4 col-xs-12">
 					   <div class="user-stats">
-						  <h2>V8TZTRQ6</h2>
+					   	<?php if(empty($booking[0]->txid)){ ?>
+						  
+						  <?php } else {?>
+						  	<h2><?php echo $booking[0]->txid;?></h2>
+						<?php }?>
 						  <small>REFERRALS CODE</small>
 					   </div>
 					</div>
@@ -40,22 +57,22 @@
 	 <div class="dashboard-menu-container">
 		<ul>
 		   <li>
-			  <a href="profile.php">
+			  <a href="<?php echo base_url('profile');?>">
 				 <div class="menu-name"> Profile </div>
 			  </a>
 		   </li>
 		   <li>
-			  <a href="booking.php">
+			  <a href="<?php echo base_url('logout');?>">
 				 <div class="menu-name">Booking</div>
 			  </a>
 		   </li>
 		   <li>
-			  <a href="subcription.php">
+			  <a href="<?php echo base_url('subscription-plan');?>">
 				 <div class="menu-name">Subcription</div>
 			  </a>
 		   </li>
 		   <li>
-			  <a href="#">
+			  <a href="<?php echo base_url('logout');?>">
 				 <div class="menu-name">Logout</div>
 			  </a>
 		   </li>

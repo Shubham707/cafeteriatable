@@ -34,75 +34,27 @@ function clear_cart() {
       <div class="page-content page-order">
         <form action="<?php echo base_url().'cart/update_cart/';?>" method="post">
           <?php if ($cart = $this->cart->contents()): ?>
-        <div class="heading-counter warning" style="background:#e63125 !important; padding:10px;margin-bottom:20px;color:#fff">Your  cart contains: <span>
-          <?php echo count($this->cart->contents());?>
-           Ground Booking</span> </div>
-          <div class="order-detail-content">
-
-		<div class="table-responsive">
-
-            <table class="table table-bordered table-hover cart_summary">
-              <thead style="background:#fee2d9">
-                <tr>
-                  <th class="cart_product">Sr.</th>
-                  <th>Plan</th>
-                  <th>Bike</th>
-                  <th>Amount</th>
-                  <th  class="action">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php  $grand_total = 0; $i=1;	foreach ($cart as $item): 
-
-                $size='';
-							echo form_hidden('cart['. $item['id'] .'][id]', $item['id']);
-							echo form_hidden('cart['. $item['id'] .'][prdid]', $item['prdid']);
-							echo form_hidden('cart['. $item['id'] .'][rowid]', $item['rowid']);
-							echo form_hidden('cart['. $item['id'] .'][name]', $item['name']);
-							//echo form_hidden('cart['. $item['id'] .'][skucode]', $item['skucode']);
-							echo form_hidden('cart['. $item['id'] .'][price]', $item['price']);
-							//echo form_hidden('cart['. $item['id'] .'][qty]', $item['qty']);
-							echo form_hidden('cart['. $item['id'] .'][size]', $item['size']);
-							//echo form_hidden('cart['. $item['id'] .'][color]', $item['color']);
-							
-							
-						?>
-
-              <tr>
-
-
-
-        <td><?php echo $i++; ?></td>
-				<td><?php echo $item['name']; ?></td>
-				<td>
-				</td>
-
-				<td><?php echo 'Rs. '.(count($ss) * $item['total']); ?></td>
-
-                <td class="action"><a href="<?php echo base_url().'cart/remove/'.$item['rowid']?>" title="Delete"><i class="fa fa-trash-o"></i></a></td>
-
-
-
-              </tr>
-
-
-
-              <?php endforeach; ?>
-
-
-
-                </tbody>
-              <tfoot>
-
-              </tfoot>
-            </table>
-
-		        </div>
-
+       
             <div class="cart_navigation"> 
-
-
-              <td colspan="10" align="right"><input type="button" value="Clear Cart" class="btn btn-default btn-gradient" onclick="clear_cart()">
+                <form action="<?php echo $action; ?>" method="post" name="payuForm" id="payuForm" style="display: block">
+                    <input type="hidden" name="key" value="<?php echo MERCHANT_KEY ?>" />
+                    <input type="hidden" name="hash" value="<?php echo $hash ?>"/>
+                    <input type="hidden" name="txnid" value="<?php echo $txnid ?>" />
+                    <input name="amount" type="number" value="<?php echo $totalCost; ?>" />
+                    <input type="text" name="firstname" id="firstname" value="<?php echo $firstName; ?>" />
+                    <input type="email" name="email" id="email" value="<?php echo $email; ?>" />
+                    <input type="text" name="phone" value="<?php echo $mobile; ?>" />
+                    <textarea name="productinfo"><?php echo "productinfo"; ?></textarea>
+                    <input type="text" name="surl" value="<?php echo SUCCESS_URL; ?>" />
+                    <input type="text" name="furl" value="<?php echo  FAIL_URL?>"/>
+                    <input type="text" name="service_provider" value="payu_paisa"/>
+                    <input type="text" name="lastname" id="lastname" value="<?php echo $lastName ?>" />
+                </form>
+                <script type="text/javascript">
+                    var payuForm = document.forms.payuForm;
+                    payuForm.submit();
+                </script>
+                
 
 
 

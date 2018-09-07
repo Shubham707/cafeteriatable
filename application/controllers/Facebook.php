@@ -42,7 +42,7 @@ class Facebook extends CI_Controller {
 		}
 
 		// display view
-		$this->load->view('examples/web', $data);
+		$this->load->view('user/profile', $data);
 	}
 
 	// ------------------------------------------------------------------------

@@ -32,7 +32,8 @@ class User_model extends CI_Model
 	/*login admin*/
 	public function admin_login($user_email,$user_pass)
 	{
-	return	$data=$this->db->get_where('users',array('email'=> $user_email,'password'=>$user_pass,))->num_rows();	
+	return	$data=$this->db->get_where('users',array('email'=> $user_email,'password'=>$user_pass,))->result();	
+	
 	}
 	
 }

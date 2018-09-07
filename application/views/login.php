@@ -43,7 +43,7 @@
             					<span class="fa fa-facebook"></span> Sign in with Facebook
           				  </a>
                           
-                          <a  href="<?php echo base_url('google-login');?>"class="btn btn-lg btn-block btn-social btn-google">
+                          <a  href="<?php echo base_url('User_Authentication');?>"class="btn btn-lg btn-block btn-social btn-google">
             					<span class="fa fa-google"></span> GoogleLogin
           				  </a>
                           

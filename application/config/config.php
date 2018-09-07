@@ -1,6 +1,19 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
+
+//PayUMoney Configurations
+define('MERCHANT_KEY', 'gtKFFx');
+define('SALT', 'eCwWELxi');
+//define('PAYU_BASE_URL', 'https://test.payu.in');    //Testing url
+define('PAYU_BASE_URL', 'https://secure.payu.in');  //actual URL
+define('SUCCESS_URL', 'http://localhost/gst/transaction/order_success');  //have complete url
+define('FAIL_URL', 'http://localhost/gst/transaction/order_fail');    //add complete url 
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -23,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/vkbike/';
+$config['base_url'] = 'http://localhost/cafeteria/';
 
 /*
 |--------------------------------------------------------------------------

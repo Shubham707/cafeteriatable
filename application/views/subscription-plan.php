@@ -71,7 +71,7 @@
 														 <li>Breakdown Assist - <?php echo $pln->Breakdown_Assist;?></li>
 														 <li>Validity -<?php echo $pln->Duration_Years;?> Year</li>
 													  </ul>
-													  <a href="<?php echo base_url().'plans/'.$bike.'/'.$pln->Plan_Name;?>" class="btn btn-theme">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+													  <a href="<?php echo base_url().'plans/'.$bike.'/'.$pln->Plan_Name.'/'.$pln->No_of_Services;?>" class="btn btn-theme">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
 												   </div>
 												</div>
 												<?php } }else{ echo 'Data Not Found!'; }?>

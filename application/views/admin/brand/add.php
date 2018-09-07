@@ -12,28 +12,42 @@
 
           <div class="box box-danger">
             <div class="box-header">
-              <h3 class="box-title">Brand Add</h3>
+              <h3 class="box-title">Menu Add</h3>
             </div>
             <form name="frm" action="<?php echo base_url('admin/brand/save');?>" method="post">
             <div class="box-body">
-              <div class="form-group">
-                <label>Brand Serial No.</label>
-
+               <div class="form-group">
+                <label>Menu Category.</label>
                 <div class="input-group">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" class="form-control" name="Brand_ID" >
+                  <select  class="form-control" name="Brand_menu" >
+                    <option>Please Select Category</option>
+                    <?php foreach($menu as $menus){ ?>
+                    <option><?= ucfirst($menus->Category_Name);?></option>
+                  <?php }?>
+                  </select>
                 </div>
               </div>
+              
 
               <div class="form-group">
-                <label>Brand Name.</label>
+                <label>Menu Name.</label>
                 <div class="input-group">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
                   <input type="text" class="form-control" name="Brand_Name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Menu Price.</label>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control" name="Brand_price">
                 </div>
               </div>
                <div class="form-group">

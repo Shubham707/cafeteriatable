@@ -12,12 +12,12 @@
 
           <div class="box box-danger">
             <div class="box-header">
-              <h3 class="box-title">Category  Add</h3>
+              <h3 class="box-title">Menu Category  Add</h3>
             </div>
             <form name="frm" action="<?php echo base_url('admin/category/cat_save');?>" method="post">
             <div class="box-body">
               <div class="form-group">
-                <label>Category ID.</label>
+                <label>Menu ID.</label>
 
                 <div class="input-group">
                   <div class="input-group-addon">

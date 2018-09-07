@@ -8,6 +8,7 @@ class Login extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('User_model');
+		$this->load->model('Admin_model');
 		$this->load->database();
 		$this->load->library('session');
 		
@@ -24,19 +25,18 @@ class Login extends CI_Controller
 		$admin_name = $this->input->post('admin_name');
 		$password = md5($this->input->post('password'));
 		
-		$user=$this->db->get('admin')->result();
-		//print_r($user); die();
-		if($user[0] == 1)
+	            //checking data via model
+	   	$checking = $this->Admin_model->login_user($admin_name,$password);
+	    // print_r($checking); die();
+		if($checking) 
 		{
-			foreach ($user as $key) 
-			{
+			
 				$data1 = array(
-                'id' => $key->id,
-                'admin_name' => $key->admin_name,
-                'username' => $key->username,
+                'id' => $checking['id'],
+                'admin_name' => $checking['admin_name'],
+                'username' => $checking['username'],
                 'admin_in'=>true,
                );
-			}
 				$this->session->set_userdata($data1);
 				redirect(base_url().'admin/dashboard');				
 		}

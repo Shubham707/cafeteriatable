@@ -37,33 +37,20 @@
             
           </ul>
         </li>
-        <li class="treeview">
+         <li class="treeview">
           <a href="#">
             <i class="fa fa-laptop"></i>
-            <span>Brand</span>
+            <span>Menu</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('admin/brand');?>"><i class="fa fa-circle-o"></i> Brand Listing</a></li>
-            <li><a href="<?php echo base_url('admin/category/classification');?>"><i class="fa fa-circle-o"></i> Category Classification</a></li>
-            <li><a href="<?php echo base_url('admin/category');?>"><i class="fa fa-circle-o"></i> Category Listing</a></li>
+            <li><a href="<?php echo base_url('admin/brand');?>"><i class="fa fa-circle-o"></i> Menu Listing</a></li>
+            <!-- <li><a href="<?php echo base_url('admin/category/classification');?>"><i class="fa fa-circle-o"></i> Category Classification</a></li> -->
+            <li><a href="<?php echo base_url('admin/category');?>"><i class="fa fa-circle-o"></i> Menu Category Listing</a></li>
           </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-laptop"></i>
-            <span>Price Table</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('admin/price');?>"><i class="fa fa-circle-o"></i> Price List</a></li>
-            <li><a href="<?php echo base_url('admin/plan');?>"><i class="fa fa-circle-o"></i> Sub Plan Price</a></li>
-          </ul>
-        </li>
+        </li> 
         <li class="treeview">
           <a href="#">
             <i class="fa fa-laptop"></i>
@@ -73,7 +60,20 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('admin/service');?>"><i class="fa fa-circle-o"></i> Service Listing</a></li>
+            <!-- <li><a href="<?php echo base_url('admin/price');?>"><i class="fa fa-circle-o"></i> Price List</a></li> -->
+            <li><a href="<?php echo base_url('admin/service');?>"><i class="fa fa-circle-o"></i> Table List</a></li>
+          </ul>
+        </li> 
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-laptop"></i>
+            <span>Payment</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo base_url('admin/payment');?>"><i class="fa fa-circle-o"></i> Payment Listing</a></li>
           </ul>
         </li>
         

@@ -15,6 +15,11 @@
                      </div>
                      <div class="header-page">
                         <h1>User Dashboard</h1>
+               <?php if($this->session->flashdata('message')){ ?>
+              <div class="alert alert-success" role="alert">
+               <?php  echo $this->session->flashdata('message');?>
+              </div>
+              <?php }?> 
                      </div>
                   </div>
                </div>
@@ -28,7 +33,7 @@
          <section class="section-padding no-top gray">
             <!-- Main Container -->
             <div class="container"><!---  --->
-               <?php include'pro.inc.php';?>
+               <?php $this->load->view('user/pro.inc.php');?>
                <div class="row margin-top-40">
                   <!-- Middle Content Area -->
                   <div class="col-md-12 col-xs-12 col-sm-12">
@@ -46,11 +51,11 @@
                                  <h2 class="heading-md">Check your profile details here.</h2>
                                  <dl class="dl-horizontal">
                                     <dt><strong>Name </strong></dt>
-                                    <dd>Arvind Sharma</dd>
+                                    <dd><?php echo $this->session->userdata('name');?></dd>
                                     <dt><strong>Email Address </strong></dt>
-                                    <dd>example@abc.com </dd>
+                                    <dd><?php echo $this->session->userdata('email');?> </dd>
                                     <dt><strong>Phone Number </strong></dt>
-                                    <dd>9876543210</dd>
+                                    <dd><?php echo $this->session->userdata('mobile');?></dd>
                                     <dt><strong>My Bike</strong></dt>
                                     <dd>You Don't have any saved Bike. </dd>
                                     <dt><strong>Address</strong></dt>
@@ -60,19 +65,19 @@
                               <div class="profile-edit tab-pane fade" id="edit">
                                  <h2 class="heading-md">Change your profile details here.</h2>
                                  <div class="clearfix"></div>
-                                 <form>
+                                 <form action="<?php echo base_url('profile/update')?>" method="post" encypt="" >
                                     <div class="row">
                                        <div class="col-md-6 col-sm-6 col-xs-12">
                                           <label>Name </label>
-                                          <input type="text" class="form-control margin-bottom-20" placeholder="Arvind Sharma">
+                                          <input type="text" name="name" class="form-control margin-bottom-20" placeholder="Arvind Sharma" value="<?php echo $this->session->userdata('name');?>">
                                        </div>
                                        <div class="col-md-6 col-sm-6 col-xs-12">
                                           <label>Email Address <span class="color-red">*</span></label>
-                                          <input type="email" class="form-control margin-bottom-20" placeholder="example@abc.com">
+                                          <input type="email" name="email" class="form-control margin-bottom-20" placeholder="example@abc.com" value="<?php echo $this->session->userdata('email');?>">
                                        </div>
                                        <div class="col-md-6 col-sm-12 col-xs-12">  
                                           <label>Phone Number  <span class="color-red">*</span></label>
-                                          <input type="number" class="form-control margin-bottom-20" placeholder="9876543210">
+                                          <input type="number" name="mobile" class="form-control margin-bottom-20" placeholder="<?php echo $this->session->userdata('mobile');?>" value="<?php echo $this->session->userdata('mobile');?>">
                                        </div>
 									   <div class="col-md-3 col-sm-12 col-xs-12">  
                                           <label>My Bike </label>
@@ -93,26 +98,27 @@
 														<div class="col-md-3 no-padding">
 														   <div class="form-group">
 															  <label>Select Make</label>
-															  <select class=" form-control make">
+															  <select name="bike_name" class=" form-control make">
+                                                <option value="<?php echo $users[0]->bike_name;?>"><?php echo $users[0]->bike_name;?></option>
 																 <option label="Any Make"></option>
-																 <option>Honda</option>
-																 <option>Royal Enfield </option>
-																 <option>Bajaj </option>
-																 <option>Hero </option>
-																 <option>TVS </option>
+                                                 <?php foreach($bike as $bikes){?>
+                                                 <option value="<?php echo $bikes->Brand_Name;?>"><?php echo $bikes->Brand_Name;?></option>
+                                                  <?php }?>
+																 
 															  </select>
 														   </div>
 														</div>
 														<div class="col-md-3 no-padding">
 														   <div class="form-group">
 															  <label>Keyword</label>
-															  <input type="text" class="form-control" placeholder="Eg Royal Enfield Bullet 350, Honda Activa, Bajaj Discover 100M" />
+															  <input type="text" name="bike_ccc" class="form-control" placeholder="Eg Royal Enfield Bullet 350, Honda Activa, Bajaj Discover 100M"  value="<?php echo $users[0]->bike_ccc;?>" />
 														   </div>
 														</div>
 														<div class="col-md-3 no-padding">
 														   <div class="form-group">
 															  <label>Select Year</label>
-															  <select class=" form-control search-year">
+															  <select name="bike_year" class=" form-control search-year">
+                                                <option value="<?php echo $users[0]->bike_year;?>"><?php echo $users[0]->bike_year;?></option>
 																 <option label="Any Year"></option>
 																 <option>Year</option>
 																 <option>2005</option>
@@ -135,7 +141,8 @@
 														<div class="col-md-3 no-padding">
 														   <div class="form-group">
 															  <label>Select Location</label>
-															  <select class="search-loaction form-control">
+															  <select name="bike_location" class="search-loaction form-control">
+                                                <option value="<?php echo $users[0]->bike_location;?>"><?php echo $users[0]->bike_location;?></option>
 																 <option label="location"></option>
 																 <option value="0">America</option>
 																 <option value="1">Australia</option>
@@ -151,14 +158,13 @@
 														<button type="submit" value="submit" class="btn btn-lg btn-theme">Confirm</button>
 													 </div>
 												  </div>
-											   </form>
 											</div>
 										</div>
 										</div>	
 									   
                                        <div class="col-md-12 col-sm-12 col-xs-12">
                                           <label>Address </label>
-                                          <textarea class = "form-control margin-bottom-20" rows = "3" placeholder="You Don't have any saved address."></textarea>
+                                          <textarea name="address" class = "form-control margin-bottom-20" rows = "3" placeholder="You Don't have any saved address."><?php echo $users[0]->address;?></textarea>
                                        </div>
                                     </div>
                                     <div class="row margin-bottom-20">
@@ -167,20 +173,25 @@
                                              <div class="input-group">
                                                 <span class="input-group-btn">
                                                 <span class="btn btn-primary btn-file">
-                                                Browse… <input type="file" id="imgInp">
+                                                Browse… <input name="images" type="file" id="imgInp">
                                                 </span>
                                                 </span>
                                                 <input type="text" class="form-control" readonly>
                                              </div>
                                           </div>
                                           <div class="col-md-3">
+                                             <?php if($users[0]->images){?>
+                                             <img id="img-upload" class="img-responsive" src="<?php echo base_url().'images/'.$users[0]->address;?>" alt="" />
+                                          <?php } else { ?>
                                              <img id="img-upload" class="img-responsive" src="../images/users/default.jpg" alt="" />
+                                             
+                                          <?php }?>
                                           </div>
                                        </div>
                                     </div>
                                     <div class="clearfix"></div>
                                     <div class="row">
-                                       
+                                      
                                        <div class="col-md-4 col-sm-4 col-xs-12 text-right">
                                           <button type="submit" class="btn btn-theme btn-sm">Update My Info</button>
                                        </div>

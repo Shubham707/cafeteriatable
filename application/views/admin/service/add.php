@@ -12,23 +12,22 @@
 
           <div class="box box-danger">
             <div class="box-header">
-              <h3 class="box-title">Service Add</h3>
+              <h3 class="box-title">Table Add</h3>
             </div>
             <form name="frm" action="<?php echo base_url('admin/service/save');?>" method="post">
             <div class="box-body">
               <div class="form-group">
-                <label>Service_ID No.</label>
-
+                <label>Table ID.</label>
                 <div class="input-group">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" class="form-control" name="Service_ID" >
+                  <input type="text" class="form-control" name="Service_ID">
                 </div>
               </div>
 
               <div class="form-group">
-                <label>Service_Name.</label>
+                <label>Table Name.</label>
                 <div class="input-group">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>

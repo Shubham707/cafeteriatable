@@ -19,11 +19,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |  facebook_auth_on_load         boolean  Set to TRUE to have the library to check for valid access token on every page load.
 */
 
-$config['facebook_app_id']              = '';
-$config['facebook_app_secret']          = '';
+$config['facebook_app_id']              = '646396152391720';
+$config['facebook_app_secret']          = 'bb7b8d0a0ed6ecfd8453cda003b8a3b5';
 $config['facebook_login_type']          = 'web';
-$config['facebook_login_redirect_url']  = 'example/web_login';
-$config['facebook_logout_redirect_url'] = 'example/logout';
+$config['facebook_login_redirect_url']  = 'http://www.vkbikes.in/web_login';
+$config['facebook_logout_redirect_url'] = 'login/logout';
 $config['facebook_permissions']         = array('public_profile', 'publish_actions', 'email');
 $config['facebook_graph_version']       = 'v2.6';
 $config['facebook_auth_on_load']        = TRUE;

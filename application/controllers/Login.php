@@ -35,21 +35,18 @@ class Login extends CI_Controller
 	{
 		$admin_name = $this->input->post('email');
 		 $password = md5($this->input->post('password'));
-		$admin = $this->User_model->admin_login($admin_name,$password);
-
-		if($admin == 1)
+		$key = $this->User_model->admin_login($admin_name,$password);
+		if($key!='')
 		{
-			$user=$this->db->get('users')->result();
-			foreach ($user as $key) 
-			{
 				$data1 = array(
-                'id' => $key->id,
-                'name' => $key->name,
-                'email' => $key->email,
-                'mobile' => $key->mobile,
+                'id' => $key[0]->id,
+                'name' => $key[0]->name,
+                'email' => $key[0]->email,
+                'mobile' => $key[0]->mobile,
+                'login_time'=>$key[0]->login_time,
                 'login_in'=>true,
                );
-			}
+			
 				$this->session->set_userdata($data1);
 				redirect(base_url().'profile');				
 		}

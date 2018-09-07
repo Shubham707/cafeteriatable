@@ -87,7 +87,11 @@
       <form action="<?php echo base_url('cart');?>" method="post">
       <input  type="text" id="total" name="total" value="">
       <input  type="hidden" id="bike" name="bike" value="<?php echo $bike;?>">
+      <input  type="hidden" id="bike" name="service" value="<?php echo $service;?>">
        <input  type="hidden" id="plan" name="plan" value="<?php echo $plan_bike;?>"><br>
+       <input type="hidden" name="name" value="<?php echo $this->session->userdata('name');?>">
+       <input type="hidden" name="email" value="<?php echo $this->session->userdata('email');?>">
+       <input type="hidden" name="mobile" value="<?php echo $this->session->userdata('mobile');?>">
        <input  type="submit"  name="submit" value="Pay">
      </form>
     </div>
@@ -128,8 +132,9 @@
             $(':checkbox:checked').each(function () {
 
                 total += +this.value;
+
             });
-           $("#total").val(total);
+           $("#total").val(total+(total*0.18));
            
         }
          

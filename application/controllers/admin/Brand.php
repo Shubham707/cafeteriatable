@@ -31,7 +31,8 @@ class Brand extends CI_Controller
 	{
 		$data=array(
 			'Brand_Name'=>$this->input->post('Brand_Name'),
-			'Brand_ID'=>$this->input->post('Brand_ID'),
+			'Brand_menu'=>$this->input->post('Brand_menu'),
+			'Brand_price'=>$this->input->post('Brand_price'),
 		);
 		$this->db->insert('brand_table',$data);
 		$this->session->set_flashdata('message','Brand Added Successfull.');
@@ -51,7 +52,8 @@ class Brand extends CI_Controller
 	}
 	public function add()
 	{
-		$this->load->view('admin/brand/add');
+		$data['menu']=$this->db->get('category_table')->result();
+		$this->load->view('admin/brand/add',$data);
 	}
 	public function delete($id)
 	{
